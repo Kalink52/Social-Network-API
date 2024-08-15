@@ -1,4 +1,5 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, default: mongoose } = require("mongoose");
+const { Thought } = require("./Thought");
 
 // **User**:
 
@@ -12,13 +13,13 @@ const { Schema, model } = require("mongoose");
 //   * String
 //   * Required
 //   * Unique
-//   * Must match a valid email address (look into Mongoose's matching validation)
+//   ! Must match a valid email address (look into Mongoose's matching validation)
 
 // * `thoughts`
-//   * Array of `_id` values referencing the `Thought` model
+//   ? Array of `_id` values referencing the `Thought` model
 
 // * `friends`
-//   * Array of `_id` values referencing the `User` model (self-reference)
+//   ? Array of `_id` values referencing the `User` model (self-reference)
 
 // **Schema Settings**:
 
@@ -26,10 +27,10 @@ const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
   {
-    username: String,
-    email: String,
-    //   thoughts: [Thought],
-    // friends: []
+    username: { type: String, require: true, unique: true }, //?
+    email: { type: String, require: true, unique: true },
+    thoughts: [{ type: Schema.Types.ObjectId, ref: 'thought'  }],
+    friends: [this],
   },
   {
     id: true,

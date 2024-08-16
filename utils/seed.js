@@ -1,11 +1,13 @@
 const connection = require("../config/connection");
 const { User, Thought, Reaction } = require("../models");
+const { getMaxListeners } = require("../models/Thought");
 
 connection.on("error", (err) => err);
 
 connection.once("open", async () => {
   console.log("connected");
 
+  // Dropping tables if exist
   let thoughtCheck = await connection.db
     .listCollections({ name: "thoughts" })
     .toArray();
@@ -17,5 +19,38 @@ connection.once("open", async () => {
     .toArray();
   if (userCheck.length) {
     await connection.dropCollection("users");
+    console.log("collection dropped");
   }
+
+  //   const reactionSchema = await Reaction.create({
+  //     reactionBody: "asdasdasdadasda",
+  //     username: "micah",
+  //   });
+
+  const thoughtData = await Thought.create({
+    thoughtText: "Thought Text goes here",
+    username: "micah",
+    reactions: [
+      { reactionBody: "wrwerwerwerwer", username: "micah" },
+      { reactionBody: "asdasdasdadasda", username: "micah" },
+    ],
+  });
+
+  const userData = await User.create(
+    {
+      username: "kalink",
+      email: "irish@gmail.com",
+      thoughts: [],
+        friends: "micah",
+    },
+    {
+      username: "micah",
+      email: "micah@gmail.com",
+      thoughts: [],
+        friends: "kalink",
+    }
+  );
+
+  console.info("Seeding complete! 🌱");
+  process.exit(0);
 });

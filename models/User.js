@@ -29,7 +29,7 @@ const userSchema = new Schema(
   {
     username: { type: String, require: true, unique: true }, //?
     email: { type: String, require: true, unique: true },
-    thoughts: [{ type: Schema.Types.ObjectId, ref: 'thought'  }],
+    thoughts: [{ type: Schema.Types.ObjectId, ref: "thought" }],
     friends: [this],
   },
   {
@@ -39,4 +39,4 @@ const userSchema = new Schema(
 
 const User = model("user", userSchema);
 
-model.exports = User;
+module.exports = User;

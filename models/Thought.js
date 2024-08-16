@@ -9,8 +9,8 @@ const { reactionSchema } = require("./Reaction");
 
 // * `createdAt`
 //   * Date
-//   ! Set default value to the current timestamp
-//   ! Use a getter method to format the timestamp on query
+//   * Set default value to the current timestamp
+//   * Use a getter method to format the timestamp on query
 
 // ! `username` (The user that created this thought)
 //   * String
@@ -26,7 +26,7 @@ const { reactionSchema } = require("./Reaction");
 const thoughtSchema = new Schema(
   {
     thoughtText: { type: String, require: true, minLength: 1, maxLength: 280 },
-    createdAt: { type: Date, default: Date.now }, //!
+    createdAt: { type: Date, default: Date.now },
     username: { type: String, require: true }, // ref to username?
     reactions: [reactionSchema],
   },

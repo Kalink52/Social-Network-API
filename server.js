@@ -1,5 +1,6 @@
 const express = require("express");
 const db = require("./config/connection");
+const routes = require("./routes");
 
 //TODO Enviromental variable
 const PORT = 3001;
@@ -10,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //TODO app routes
-// app.use(routes)
+app.use(routes);
 
 db.once("open", () => {
   app.listen(PORT, () => {

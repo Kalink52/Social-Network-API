@@ -29,7 +29,6 @@ connection.once("open", async () => {
 
   const thoughtData = await Thought.create({
     thoughtText: "Thought Text goes here",
-    username: "micah",
     reactions: [
       { reactionBody: "wrwerwerwerwer", username: "micah" },
       { reactionBody: "asdasdasdadasda", username: "micah" },
@@ -41,13 +40,13 @@ connection.once("open", async () => {
       username: "kalink",
       email: "irish@gmail.com",
       thoughts: [],
-        friends: "micah",
+      friends: []
     },
     {
       username: "micah",
       email: "micah@gmail.com",
       thoughts: [],
-        friends: "kalink",
+      friends: []
     }
   );
 

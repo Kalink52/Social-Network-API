@@ -10,7 +10,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//TODO app routes
 app.use(routes);
 
 db.once("open", () => {

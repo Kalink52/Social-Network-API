@@ -12,7 +12,7 @@ const { reactionSchema } = require("./Reaction");
 //   * Set default value to the current timestamp
 //   * Use a getter method to format the timestamp on query
 
-// ! `username` (The user that created this thought)
+// * `username` (The user that created this thought)
 //   * String
 //   * Required
 

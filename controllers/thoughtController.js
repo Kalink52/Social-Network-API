@@ -1,6 +1,5 @@
-const { Thought } = require("../models");
+const { Thought, User } = require("../models");
 
-//TODO Populate
 module.exports = {
   async getThought(req, res) {
     try {
@@ -20,7 +19,17 @@ module.exports = {
   },
   async createThought(req, res) {
     try {
-      const thoughtData = await Thought.create(req.body);
+      const thoughtData = await Thought.create({
+        thoughtText: req.body.thoughtText,
+        username: req.body.username,
+      });
+
+      const userData = await User.findByIdAndUpdate(
+        { _id: req.body.userId },
+        { $push: { thoughts: [thoughtData._id] } },
+        { new: true }
+      );
+
       res.status(200).json(thoughtData);
     } catch (err) {
       res.status(500).json(err);

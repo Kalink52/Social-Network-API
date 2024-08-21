@@ -5,7 +5,6 @@ try {
   res.status(500).json(err);
 }
 */
-// TODO: fix not populating thoughts Maybe in models, or seeds
 
 module.exports = {
   async getUser(req, res) {

@@ -2,7 +2,6 @@ const express = require("express");
 const db = require("./config/connection");
 const routes = require("./routes");
 
-//TODO Enviromental variable
 const PORT = 3001;
 const app = express();
 

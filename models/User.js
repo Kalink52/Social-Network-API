@@ -7,13 +7,13 @@ const { Thought } = require("./Thought");
 //   * String
 //   * Unique
 //   * Required
-//   * Trimmed
+//   todo Trimmed
 
 // * `email`
 //   * String
 //   * Required
 //   * Unique
-//   ! Must match a valid email address (look into Mongoose's matching validation)
+//   todo Must match a valid email address (look into Mongoose's matching validation)
 
 // * `thoughts`
 //   * Array of `_id` values referencing the `Thought` model
@@ -39,7 +39,6 @@ const userSchema = new Schema(
     },
   }
 );
-//TODO: make this work
 userSchema.virtual("friendCount").get(function () {
   if (this.friends.length !== 0) {
     return `You have ${this.friends.length} friends`;

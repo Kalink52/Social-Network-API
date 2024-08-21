@@ -13,9 +13,8 @@ A demo of using Mongoose and MongoDB with Node and Express.
 A social media api that allows crud operation for the items in the model. 
 
 ## Video demo
-
-<video controls src="readmeAssets/2024-08-21 10-23-35.mp4" title="Title"></video>+
-
+[Click me for video demo](https://drive.google.com/file/d/1PFj4pWx2OgqZ8QH59rP1tAT351uCoKFW/view?usp=sharing)
+<video width="320" controls src="readmeAssets/2024-08-21 10-23-35.mp4" title="Title"></video>
 ## Installation
 1.  Install Node.js 
 2.  Install mongodb 
